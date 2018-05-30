@@ -49,14 +49,26 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
+                    searchEt.setText("");
                     String keyWord = (String) msg.obj;
                     loadingDialog.dismiss();
-                    mKeywordList.add(keyWord);
+                    if (mKeywordList.contains(keyWord)) {
+                        mKeywordList.remove(keyWord);
+                    }
+                    mKeywordList.add(0, keyWord);
                     mTagAdapter.notifyDataChanged();
                     if (mKeywordList.size() > 0) {
                         mDataView.setVisibility(View.VISIBLE);
                         mNoDataView.setVisibility(View.GONE);
                     }
+
+                    for (View deleteView : mDeleteViewList) {
+                        deleteView.setVisibility(View.INVISIBLE);
+                    }
+
+                    btnDeleteHistory.setVisibility(View.VISIBLE);
+                    btnDone.setVisibility(View.GONE);
+                    btnClearAllHistory.setVisibility(View.GONE);
                     break;
             }
         }
@@ -191,7 +203,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         searchEt.setText(s);
                         loadingDialog.show();
-                        mHandler.sendEmptyMessageDelayed(1, 2000);
+                        Message msg = new Message();
+                        msg.what = 1;
+                        msg.obj = s;
+                        mHandler.sendMessageDelayed(msg, 1500);
                     }
                 });
 

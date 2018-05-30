@@ -28,13 +28,14 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@+id/btn_back"
-            android:background="#afafaf">
+            android:background="@drawable/shape_round_tran">
 
             <EditText
                 android:id="@+id/search_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toLeftOf="@+id/cancel_btn"
+                android:background="@null"
                 android:hint="输入要搜索的内容"
                 android:imeOptions="actionSearch"
                 android:maxLines="1"
@@ -48,8 +49,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="20dp"
                 android:src="@drawable/label_delete"
                 android:visibility="gone" />
 
@@ -59,19 +59,20 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorAccent" />
+        android:background="#efefef" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff">
+        android:background="#efefef">
 
         <LinearLayout
             android:id="@+id/history_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#fff"
+            android:visibility="gone">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -139,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="15dp"
-                android:background="@color/colorAccent" />
+                android:background="#efefef" />
 
             <TextView
                 android:id="@+id/btn_clearAllHistory"
